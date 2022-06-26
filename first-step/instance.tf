@@ -1,7 +1,7 @@
 provider "aws" {
-  access_key = "my_key"
-  secret_key = "my_secret_key"
-  region = "us-east-1"
+  access_key = "${var.AWS_ACCESS_KEY}"
+  secret_key = "${var.AWS_SECRET_KEY}"
+  region = "${var.AWS_REGION}"
 }
 
 resource "aws_instance" "terrafrom-first-step" {
