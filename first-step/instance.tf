@@ -5,6 +5,6 @@ provider "aws" {
 }
 
 resource "aws_instance" "terrafrom-first-step" {
-    ami = "ami-0f65ab0fd913bc7be"
+    ami = "${lookup(var.AMIS, var.AWS_REGION)}"
     instance_type = "t2.micro"
 }
