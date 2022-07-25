@@ -45,9 +45,18 @@ module "eks" {
   # enable_irsa = false
 
   cluster_addons = {
-    coredns = {}
-    kube-proxy = {}
-    vpc-cni = {}
+    coredns = {
+      addon_version = "v1.8.7-eksbuild.1"
+      resolve_conflicts = "OVERWRITE"
+    }
+    kube-proxy = {
+      addon_version = "v1.22.11-eksbuild.2"
+      resolve_conflicts = "OVERWRITE"
+    }
+    vpc-cni = {
+      addon_version = "v1.11.2-eksbuild.1"
+      resolve_conflicts = "OVERWRITE"
+    }
   }
 
   # Encryption key
