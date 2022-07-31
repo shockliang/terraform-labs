@@ -1,0 +1,373 @@
+{
+    "SecurityGroupRules": [
+        {
+            "SecurityGroupRuleId": "sgr-0a7aa076836224148",
+            "GroupId": "sg-0cd1d947eb6eb70f8",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "0.0.0.0/0",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-07f0f2d6f05225ea7",
+            "GroupId": "sg-049a6aab9c1de97df",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 1025,
+            "ToPort": 65535,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "To node 1025-65535",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-03a295a254422e472",
+            "GroupId": "sg-0da180dd5643bdf00",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "113.61.168.9/32",
+            "Description": "3f-office-debug",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0457657e743d0e3e4",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-049a6aab9c1de97df",
+                "UserId": "089657688969"
+            },
+            "Description": "Cluster API to node groups",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-094b059f054526bf2",
+            "GroupId": "sg-0cd1d947eb6eb70f8",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0cd1d947eb6eb70f8",
+                "UserId": "089657688969"
+            },
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-00085cb92dcb7b278",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "0.0.0.0/0",
+            "Description": "Node all egress",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0c2a87adbc1e203a6",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "udp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node to node CoreDNS",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-04a7f3de4a339f479",
+            "GroupId": "sg-049a6aab9c1de97df",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node groups to cluster API",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-00e28fe99eef5ed45",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node to node CoreDNS",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0756ed3224a166b3e",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 123,
+            "ToPort": 123,
+            "CidrIpv4": "169.254.169.123/32",
+            "Description": "Egress NTP/TCP to internet",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0a82b8dd53c46baa8",
+            "GroupId": "sg-049a6aab9c1de97df",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 10250,
+            "ToPort": 10250,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Cluster API to node kubelets",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-06dd05e7bc8ecf9a4",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "udp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node to node CoreDNS",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0ebf17c44b7827cf6",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node to node all ports/protocols",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0a33fb20b2b1d8824",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 10250,
+            "ToPort": 10250,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-049a6aab9c1de97df",
+                "UserId": "089657688969"
+            },
+            "Description": "Cluster API to node kubelets",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-010daf443616c5c74",
+            "GroupId": "sg-057687b8a44132f57",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-057687b8a44132f57",
+                "UserId": "089657688969"
+            },
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-09bfc42c56a08e2ad",
+            "GroupId": "sg-0324353bb314cdbf6",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "172.16.0.0/12",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0f266274b373195db",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Node to node CoreDNS",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0e7921b0207be956d",
+            "GroupId": "sg-0da180dd5643bdf00",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "172.39.16.0/20",
+            "Description": "allow lan access",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-001cb1cf6d26c3937",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "CidrIpv4": "0.0.0.0/0",
+            "Description": "Egress all HTTPS to internet",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-03dcbdc82b71ad18e",
+            "GroupId": "sg-0324353bb314cdbf6",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "172.39.0.0/16",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-017fba6a6c6c03dc8",
+            "GroupId": "sg-049a6aab9c1de97df",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-0c5f60fb7d694b45f",
+                "UserId": "089657688969"
+            },
+            "Description": "Cluster API to node groups",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0719f128b2cbe786d",
+            "GroupId": "sg-0324353bb314cdbf6",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "192.168.0.0/16",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-0c4ff35ae87a06392",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "udp",
+            "FromPort": 123,
+            "ToPort": 123,
+            "CidrIpv4": "169.254.169.123/32",
+            "Description": "Egress NTP/UDP to internet",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-00e07e9044d234ee4",
+            "GroupId": "sg-0324353bb314cdbf6",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "10.0.0.0/8",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-08e7bfb1dd021ff93",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "ReferencedGroupInfo": {
+                "GroupId": "sg-049a6aab9c1de97df",
+                "UserId": "089657688969"
+            },
+            "Description": "Node groups to cluster API",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-09a1726e3e7814ef0",
+            "GroupId": "sg-0da180dd5643bdf00",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "0.0.0.0/0",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-099dd4e820fcd491c",
+            "GroupId": "sg-057687b8a44132f57",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv4": "0.0.0.0/0",
+            "Tags": []
+        },
+        {
+            "SecurityGroupRuleId": "sgr-03983007de5909faf",
+            "GroupId": "sg-0c5f60fb7d694b45f",
+            "GroupOwnerId": "089657688969",
+            "IsEgress": true,
+            "IpProtocol": "-1",
+            "FromPort": -1,
+            "ToPort": -1,
+            "CidrIpv6": "::/0",
+            "Description": "Node all egress",
+            "Tags": []
+        }
+    ]
+}
