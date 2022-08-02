@@ -6,6 +6,7 @@ resource "aws_subnet" "eks-node-primary-subnet" {
 
   tags = {
     "Name" = "${local.name}-node-primary-subnet"
+    "kubernetes.io/cluster/${local.name}" = "owned"
   }
   depends_on = [
     data.aws_vpc.exist

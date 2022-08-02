@@ -52,3 +52,11 @@ variable "users" {
   }))
   default = []
 }
+
+variable "istio_version" {
+  default = "1.14.1"
+}
+
+variable "istio_namespace" {
+  default = "istio-system"
+}

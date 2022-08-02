@@ -41,6 +41,7 @@ module "eks" {
   cluster_name                    = local.name
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
+  # cluster_version = "1.22"
 
   # enable_irsa = false
 
@@ -240,7 +241,11 @@ module "eks_managed_node_group" {
   cluster_name    = module.eks.cluster_id
   cluster_version = module.eks.cluster_version
   capacity_type  = "SPOT"
-  instance_types = ["t2.micro"]
+  instance_types = ["c5d.xlarge"]
+  labels = {
+    "service-type" = "compute"
+  }
+  desired_size = 1
 
   vpc_id                            = data.aws_vpc.exist.id
   subnet_ids                        = [aws_subnet.eks-node-primary-subnet.id]
@@ -249,7 +254,30 @@ module "eks_managed_node_group" {
     module.eks.cluster_security_group_id,
   ]
 
-  tags = merge(local.tags, { Separate = "${local.name}-eks-mng" })
+  tags = merge(local.tags, { Separate = "${local.name}-compute" })
+}
+
+module "eks_managed_node_group-t3a" {
+  source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
+  name            = "${local.name}-eks-mng-2"
+  cluster_name    = module.eks.cluster_id
+  cluster_version = module.eks.cluster_version
+  capacity_type  = "SPOT"
+  instance_types = ["t3a.xlarge"]
+  labels = {
+    "service-type" = "api"
+  }
+  # min_size = 2
+  desired_size = 1
+
+  vpc_id                            = data.aws_vpc.exist.id
+  subnet_ids                        = [aws_subnet.eks-node-primary-subnet.id]
+  cluster_primary_security_group_id = module.eks.cluster_primary_security_group_id
+  vpc_security_group_ids = [
+    module.eks.cluster_security_group_id,
+  ]
+
+  tags = merge(local.tags, { Separate = "${local.name}-api" })
 }
 
 # module "self_managed_node_group" {
