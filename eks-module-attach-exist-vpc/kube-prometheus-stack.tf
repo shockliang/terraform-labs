@@ -15,5 +15,6 @@ resource "helm_release" "kube-prometheus-statck" {
   name            = "monitoring"
   version         = local.kube_prometheus_stack_version
   namespace       = kubernetes_namespace.monitoring.id
+  values = [ "${file("prometheus.yaml")}" ]
   cleanup_on_fail = true
 }
