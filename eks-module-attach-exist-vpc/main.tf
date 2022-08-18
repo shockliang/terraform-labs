@@ -21,24 +21,26 @@ module "eks" {
   cluster_name                    = local.name
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
-  # cluster_version = "1.22"
+  cluster_version = "1.23"
 
   # enable_irsa = false
 
-  cluster_addons = {
-    coredns = {
-      addon_version = "v1.8.7-eksbuild.1"
-      resolve_conflicts = "OVERWRITE"
-    }
-    kube-proxy = {
-      addon_version = "v1.22.11-eksbuild.2"
-      resolve_conflicts = "OVERWRITE"
-    }
-    vpc-cni = {
-      addon_version = "v1.11.2-eksbuild.1"
-      resolve_conflicts = "OVERWRITE"
-    }
-  }
+  cluster_enabled_log_types = [ "authenticator" ]
+
+  # cluster_addons = {
+  #   coredns = {
+  #     addon_version     = "v1.8.7-eksbuild.2"
+  #     resolve_conflicts = "OVERWRITE"
+  #   }
+  #   kube-proxy = {
+  #     addon_version     = "v1.23.7-eksbuild.1"
+  #     resolve_conflicts = "OVERWRITE"
+  #   }
+  #   vpc-cni = {
+  #     addon_version     = "v1.11.3-eksbuild.1"
+  #     resolve_conflicts = "OVERWRITE"
+  #   }
+  # }
 
   # Encryption key
   # create_kms_key = true
