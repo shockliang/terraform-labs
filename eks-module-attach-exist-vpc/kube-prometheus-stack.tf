@@ -20,4 +20,7 @@ resource "helm_release" "kube-prometheus-statck" {
   namespace       = kubernetes_namespace.monitoring.id
   values = [ "${file("kube-prometheus-stack-values.yaml")}"]
   cleanup_on_fail = true
+  depends_on = [
+    module.ebs_csi_driver_controller
+  ]
 }
