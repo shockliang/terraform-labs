@@ -23,7 +23,7 @@ module "eks" {
   cluster_endpoint_public_access  = true
   cluster_version = "1.23"
 
-  # enable_irsa = false
+  enable_irsa = true
 
   cluster_enabled_log_types = [ "authenticator" ]
 
@@ -39,6 +39,11 @@ module "eks" {
   #   vpc-cni = {
   #     addon_version     = "v1.11.3-eksbuild.1"
   #     resolve_conflicts = "OVERWRITE"
+  #   }
+  #   aws-ebs-csi-driver = {
+  #     addon_version = "v1.10.0-eksbuild.1"
+  #     resolve_conflicts = "OVERWRITE"
+  #     service_account_role_arn = ""
   #   }
   # }
 

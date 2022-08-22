@@ -60,3 +60,7 @@ variable "istio_version" {
 variable "istio_namespace" {
   default = "istio-system"
 }
+
+variable "ebs_csi_controller_role_name" {
+  default = "testing-eks-ebs-csi-controller"
+}

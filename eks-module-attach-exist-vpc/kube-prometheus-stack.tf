@@ -21,6 +21,8 @@ resource "helm_release" "kube-prometheus-statck" {
   values = [ "${file("kube-prometheus-stack-values.yaml")}"]
   cleanup_on_fail = true
   depends_on = [
-    module.ebs_csi_driver_controller
+    helm_release.istio-ingress,
+    helm_release.metrics_server,
+    aws_eks_addon.aws_ebs_csi_driver
   ]
 }
