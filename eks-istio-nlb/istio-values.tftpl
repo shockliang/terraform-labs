@@ -1,0 +1,29 @@
+service:
+  # Type of service. Set to "None" to disable the service entirely
+  # type: LoadBalancer
+  # ports:
+  # - name: status-port
+  #   port: 15021
+  #   protocol: TCP
+  #   targetPort: 15021
+  # - name: http2
+  #   port: 80
+  #   protocol: TCP
+  #   targetPort: 80
+  # - name: https
+  #   port: 443
+  #   protocol: TCP
+  #   targetPort: 443
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-subnets:  "${primary-subnet-id}"
+  # loadBalancerIP: ""
+  # loadBalancerSourceRanges: []
+  externalTrafficPolicy: "Local"
+  # externalIPs: []
+  # externalIPs: []
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 80
