@@ -19,5 +19,10 @@ service:
     service.beta.kubernetes.io/aws-load-balancer-subnets:  "${primary-subnet-id}"
   # loadBalancerIP: ""
   # loadBalancerSourceRanges: []
-  # externalTrafficPolicy: ""
+  externalTrafficPolicy: "Local"
   # externalIPs: []
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 80
