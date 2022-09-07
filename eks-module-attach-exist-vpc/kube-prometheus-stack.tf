@@ -1,15 +1,15 @@
 locals {
   kube_prometheus_stack_charts_url = "https://prometheus-community.github.io/helm-charts"
-  kube_prometheus_stack_version = "39.7.0"
+  kube_prometheus_stack_version    = "39.7.0"
 }
 
 resource "kubernetes_namespace" "monitoring" {
   metadata {
     name = "monitoring"
   }
-  depends_on = [
-    helm_release.metrics_server
-  ]
+  # depends_on = [
+  #   helm_release.metrics_server
+  # ]
 }
 
 resource "helm_release" "kube-prometheus-statck" {
@@ -18,10 +18,10 @@ resource "helm_release" "kube-prometheus-statck" {
   name            = "monitoring"
   version         = local.kube_prometheus_stack_version
   namespace       = kubernetes_namespace.monitoring.id
-  values = [ "${file("kube-prometheus-stack-values.yaml")}"]
+  values          = ["${file("kube-prometheus-stack-values.yaml")}"]
   cleanup_on_fail = true
   depends_on = [
-    helm_release.istio-ingress,
+    helm_release.istio-ingressgateway,
     helm_release.metrics_server,
     aws_eks_addon.aws_ebs_csi_driver
   ]

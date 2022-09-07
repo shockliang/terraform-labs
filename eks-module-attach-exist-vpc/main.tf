@@ -21,11 +21,11 @@ module "eks" {
   cluster_name                    = local.name
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
-  cluster_version = "1.23"
+  cluster_version                 = "1.23"
 
   enable_irsa = true
 
-  cluster_enabled_log_types = [ "authenticator" ]
+  cluster_enabled_log_types = ["authenticator"]
 
   # cluster_addons = {
   #   coredns = {
@@ -211,7 +211,7 @@ module "eks" {
   #   },
   # ]
 
-  aws_auth_users = var.users
+  aws_auth_users    = var.users
   aws_auth_accounts = [for user in var.users : user.username]
 
   tags = local.tags
@@ -227,8 +227,8 @@ module "eks_managed_node_group" {
   name            = "${local.name}-eks-mng"
   cluster_name    = module.eks.cluster_id
   cluster_version = module.eks.cluster_version
-  capacity_type  = "SPOT"
-  instance_types = ["c5d.xlarge"]
+  capacity_type   = "SPOT"
+  instance_types  = ["c5d.xlarge"]
   labels = {
     "service-type" = "compute"
   }
@@ -245,12 +245,12 @@ module "eks_managed_node_group" {
 }
 
 module "eks_managed_node_group-t3a" {
-  source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
+  source          = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
   name            = "${local.name}-eks-mng-2"
   cluster_name    = module.eks.cluster_id
   cluster_version = module.eks.cluster_version
-  capacity_type  = "SPOT"
-  instance_types = ["t3a.xlarge"]
+  capacity_type   = "SPOT"
+  instance_types  = ["t3a.xlarge"]
   labels = {
     "service-type" = "api"
   }

@@ -46,15 +46,15 @@ variable "vpc_name" {
 
 variable "users" {
   type = list(object({
-    userarn = string
+    userarn  = string
     username = string
-    groups = list(string)
+    groups   = list(string)
   }))
   default = []
 }
 
 variable "istio_version" {
-  default = "1.14.1"
+  default = "1.14.3"
 }
 
 variable "istio_namespace" {

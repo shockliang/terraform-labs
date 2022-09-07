@@ -3,9 +3,9 @@ resource "aws_subnet" "eks-node-secondary-subnet" {
   cidr_block              = "172.39.32.0/24"
   availability_zone       = "${var.AWS_REGION}b"
   map_public_ip_on_launch = true
-  
+
   tags = {
-    "Name" = "${local.name}-node-secnodary-subnet"
+    "Name"                                = "${local.name}-node-secnodary-subnet"
     "kubernetes.io/cluster/${local.name}" = "owned"
   }
   depends_on = [

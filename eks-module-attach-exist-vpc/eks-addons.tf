@@ -10,8 +10,8 @@ resource "aws_eks_addon" "vpc_cni" {
 }
 
 resource "aws_eks_addon" "coredns" {
-  cluster_name = module.eks.cluster_id
-  addon_name   = "coredns"
+  cluster_name      = module.eks.cluster_id
+  addon_name        = "coredns"
   addon_version     = "v1.8.7-eksbuild.2"
   resolve_conflicts = "OVERWRITE"
   depends_on = [
@@ -21,8 +21,8 @@ resource "aws_eks_addon" "coredns" {
 }
 
 resource "aws_eks_addon" "kube_proxy" {
-  cluster_name = module.eks.cluster_id
-  addon_name   = "kube-proxy"
+  cluster_name      = module.eks.cluster_id
+  addon_name        = "kube-proxy"
   addon_version     = "v1.23.7-eksbuild.1"
   resolve_conflicts = "OVERWRITE"
   depends_on = [
@@ -57,10 +57,10 @@ module "iam_assumable_role_admin" {
 }
 
 resource "aws_eks_addon" "aws_ebs_csi_driver" {
-  cluster_name = module.eks.cluster_id
-  addon_name   = "aws-ebs-csi-driver"
-  addon_version = "v1.10.0-eksbuild.1"
-  resolve_conflicts = "OVERWRITE"
+  cluster_name             = module.eks.cluster_id
+  addon_name               = "aws-ebs-csi-driver"
+  addon_version            = "v1.10.0-eksbuild.1"
+  resolve_conflicts        = "OVERWRITE"
   service_account_role_arn = module.iam_assumable_role_admin.iam_role_arn
   depends_on = [
     module.eks_managed_node_group,
